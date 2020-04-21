@@ -29,7 +29,18 @@ module.exports = {
   publicPath,
   lintOnSave: true,
   devServer: {
-    publicPath // 和 publicPath 保持一致
+    publicPath, // 和 publicPath 保持一致
+    proxy: {
+      '/api': {
+        //target: 'http://47.113.97.15/LH.Dandelion.Api/api',
+        target: 'https://localhost:44389/api',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
   },
   css: {
     loaderOptions: {

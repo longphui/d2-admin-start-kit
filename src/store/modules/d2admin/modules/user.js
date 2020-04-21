@@ -1,3 +1,5 @@
+
+import util from '@/libs/util.js'
 export default {
   namespaced: true,
   state: {
@@ -38,6 +40,12 @@ export default {
           defaultValue: {},
           user: true
         }, { root: true })
+        if (!!(state.info)) {
+          state.info = {
+            name: util.cookies.get('loginName'),
+            role: util.cookies.get('roleName')
+          }
+        }
         // end
         resolve()
       })

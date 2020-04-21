@@ -1,0 +1,1 @@
+window.CommonPoolId = '123'

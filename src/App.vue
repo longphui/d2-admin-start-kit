@@ -6,6 +6,7 @@
 
 <script>
 import util from '@/libs/util'
+
 export default {
   name: 'app',
   watch: {
@@ -13,6 +14,9 @@ export default {
   },
   created () {
     this.i18nHandle(this.$i18n.locale)
+    if (!!(util.cookies.get('asideMenu'))) {
+      this.$store.commit('d2admin/menu/asideSet', JSON.parse(util.cookies.get('asideMenu')), { root: true })
+    }
   },
   methods: {
     i18nHandle (val, oldVal) {

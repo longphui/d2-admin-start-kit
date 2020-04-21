@@ -21,24 +21,52 @@ const frameIn = [
         },
         component: _import('system/index')
       },
-      // 演示页面
+      // CRM-客户管理
       {
-        path: 'page1',
-        name: 'page1',
+        path: 'customer-add/:pool?',
+        name: 'customer-add',
         meta: {
-          title: '页面 1',
+          title: '新增客户',
           auth: true
         },
-        component: _import('demo/page1')
+        component: _import('CRM/Customer/Add')
       },
       {
-        path: 'page2',
-        name: 'page2',
+        path: 'customer-private',
+        name: 'customer-private',
         meta: {
-          title: '页面 2',
+          title: '个人客户',
           auth: true
         },
-        component: _import('demo/page2')
+        component: _import('CRM/Customer/Private')
+      },
+      {
+        path: 'customer-public',
+        name: 'customer-public',
+        meta: {
+          title: '公共客户',
+          auth: true
+        },
+        component: _import('CRM/Customer/Public')
+      },
+      {
+        path: 'visit-add',
+        name: 'visit-add',
+        meta: {
+          title: '新增回访',
+          auth: true
+        },
+        component: _import('CRM/Visit/Add')
+      },
+      // 系统管理
+      {
+        path: 'sys-user',
+        name: 'sys-user',
+        meta: {
+          title: '用户',
+          auth: true
+        },
+        component: _import('Admin/SysUser')
       },
       {
         path: 'page3',

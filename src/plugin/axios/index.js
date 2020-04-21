@@ -36,7 +36,7 @@ function errorLog (error) {
 // 创建一个 axios 实例
 const service = axios.create({
   baseURL: process.env.VUE_APP_API,
-  timeout: 5000 // 请求超时时间
+  timeout: 50000 // 请求超时时间
 })
 
 // 请求拦截器
@@ -91,7 +91,7 @@ service.interceptors.response.use(
         case 403: error.message = '拒绝访问'; break
         case 404: error.message = `请求地址出错: ${error.response.config.url}`; break
         case 408: error.message = '请求超时'; break
-        case 500: error.message = '服务器内部错误'; break
+        case 500: error.message = error.response.data || '服务器内部错误'; break
         case 501: error.message = '服务未实现'; break
         case 502: error.message = '网关错误'; break
         case 503: error.message = '服务不可用'; break
